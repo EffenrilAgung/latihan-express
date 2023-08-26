@@ -53,6 +53,14 @@ class User {
 		}
 		return;
 	}
+
+	async existingAlready() {
+		const existingUser = await this.getUserWithSameEmail();
+		if (existingUser) {
+			return true;
+		}
+		return false;
+	}
 }
 
 module.exports = User;
